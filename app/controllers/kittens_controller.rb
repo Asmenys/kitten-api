@@ -10,6 +10,18 @@ class KittensController < ApplicationController
     def new
         @kitten = Kitten.new
     end
+
+    def update
+        @kitten = Kitten.find(params[:id])
+        @kitten.update(kitten_params)
+        redirect_to @kitten
+    end
+
+    def destroy
+        @kitten = Kitten.find(params[:id])
+        @kitten.delete
+        redirect_to root_path
+    end
     
     def create
         @kitten = Kitten.new(kitten_params)

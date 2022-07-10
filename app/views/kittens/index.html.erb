@@ -1,5 +1,8 @@
 <%if @kittens.any?%>
     <%@kittens.each do |kitten|%>
-        <%=kitten%>
+        <div>
+            <%=kitten%>
+            <%=render partial: 'delete_button', locals: {kitten: kitten}%>
+        </div>
     <% end %>
 <% end %>
