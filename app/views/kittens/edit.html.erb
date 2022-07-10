@@ -1,0 +1,8 @@
+<% if @kitten.errors.any?%>
+    <div class="error-explanation">
+        <%kitten.errors.map(&:full_message).each do |error_message|%>
+            <h4><%= error_message%></h4>
+        <% end %>
+    </div>
+<% end %>
+ <%=render 'kitten_form', kitten: @kitten%>
