@@ -14,20 +14,24 @@ class KittensController < ApplicationController
     def update
         @kitten = Kitten.find(params[:id])
         @kitten.update(kitten_params)
+        flash.alert = "Kitten reconfigured successfully"
         redirect_to @kitten
     end
 
     def destroy
         @kitten = Kitten.find(params[:id])
         @kitten.delete
+        flash.alert = "Kitten destroyed successfully"
         redirect_to root_path
     end
     
     def create
         @kitten = Kitten.new(kitten_params)
         if @kitten.save
+            flash.alert = "Kitten spawned successfully"
             redirect_to @kitten
         else
+            flash.alert = "You inconsiderate buffoon, why is your kitten incomplete?"
             render :edit, status: :unprocessable_entity
         end
     end

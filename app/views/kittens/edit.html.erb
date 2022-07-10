@@ -5,5 +5,7 @@
         <% end %>
     </div>
 <% end %>
- <%=render 'kitten_form', kitten: @kitten%>
- <%= render 'delete_button', kitten: @kitten%>
+<%=render 'kitten_form', kitten: @kitten%>
+<% unless @kitten.id.nil?%>
+    <%= render 'delete_button', kitten: @kitten%>
+<% end %>
